@@ -1,0 +1,54 @@
+<h1>REGISTER</h1>
+<hr>
+<h4>Personal Information</h4>
+<form [formGroup]="dataform" (ngSubmit)="submit()">
+    <div class="form-group"></div>
+    <label for="name"> First Name</label>
+    <input type="text" class="form-control" formControlName="firstname">
+    <div class="form-group"></div>
+    <label for="name"> Last Name</label>
+     <input type="text" class="form-control" formControlName="lastname">
+    <div class="form-group"></div>
+    <label for="name"> Email</label>
+     <input type="text" class="form-control" formControlName="email">
+    <div class="form-group"></div>
+    <label for="name"> Phone Number</label>
+     <input type="text" class="form-control" formControlName="phonenumber">
+    <div class="form-group"></div>
+    <label for="name"> ID Number</label>
+     <input type="text" class="form-control" formControlName="idnumber">
+    <div class="form-group"></div>
+    <label for="name">Birthday</label>
+     <input type="text" class="form-control" formControlName="birthday">
+    <div class="form-group"></div>
+    <label for="name">Status</label>
+     <input type="text" class="form-control" formControlName="status">
+    <br>
+    <hr>
+    <h4>Address</h4>
+    
+        <div class="form-group"></div>
+        <label for="name"> Street</label>
+         <input type="text" class="form-control" formControlName="street">
+        <div class="form-group"></div>
+        <label for="name"> Number</label>
+         <input type="text" class="form-control" formControlName="number">
+        <div class="form-group"></div>
+        <label for="name"> City</label>
+         <input type="text" class="form-control" formControlName="city">
+        <div class="form-group"></div>
+        <label for="name"> State</label>
+         <input type="text" class="form-control" formControlName="state">
+        <div class="form-group"></div>
+        <label for="name">ZIP</label>
+         <input type="text" class="form-control" formControlName="zip">
+   
+    <br>
+    <button type="submit" class="btn btn-success btn-rounded">
+        Submit
+      </button>
+    <hr>
+    
+    
+</form>
+
