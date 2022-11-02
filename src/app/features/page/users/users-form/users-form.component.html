@@ -1,30 +1,35 @@
-<h1>REGISTER</h1>
+<br>
+<h1><span style="color: #4a4857">  <i class="fas fa-user-friends"></i> </span>Register User</h1>
 <hr>
 <h4>Personal Information</h4>
 <form [formGroup]="dataform" (ngSubmit)="submit()">
     <div class="form-group"></div>
     <label for="name"> First Name</label>
-    <input type="text" class="form-control" formControlName="firstname">
+    <input type="text" class="form-control" formControlName="firstName">
     <div class="form-group"></div>
     <label for="name"> Last Name</label>
-     <input type="text" class="form-control" formControlName="lastname">
+     <input type="text" class="form-control" formControlName="lastName">
     <div class="form-group"></div>
     <label for="name"> Email</label>
      <input type="text" class="form-control" formControlName="email">
     <div class="form-group"></div>
     <label for="name"> Phone Number</label>
-     <input type="text" class="form-control" formControlName="phonenumber">
+     <input type="text" class="form-control" formControlName="phoneNumber">
     <div class="form-group"></div>
     <label for="name"> ID Number</label>
-     <input type="text" class="form-control" formControlName="idnumber">
+     <input type="text" class="form-control" formControlName="idNumber">
     <div class="form-group"></div>
     <label for="name">Birthday</label>
-     <input type="text" class="form-control" formControlName="birthday">
+     <input type="date" class="form-control" formControlName="birthDate">
     <div class="form-group"></div>
     <label for="name">Status</label>
-     <input type="text" class="form-control" formControlName="status">
+    <select class="form-control" formControlName="status" >
+      <option type="number" [value]="1">ACTIVE</option>
+    </select>
     <br>
     <hr>
+    
+    <div formGroupName="address">
     <h4>Address</h4>
     
         <div class="form-group"></div>
@@ -42,9 +47,10 @@
         <div class="form-group"></div>
         <label for="name">ZIP</label>
          <input type="text" class="form-control" formControlName="zip">
+        </div>
    
     <br>
-    <button type="submit" class="btn btn-success btn-rounded">
+    <button routerLink="/list" type="submit" class="btn btn-success btn-rounded">
         Submit
       </button>
     <hr>

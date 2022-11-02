@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CreateUserDto } from 'src/app/shared/models/User/create-user-dto.models';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {  UserDto } from 'src/app/shared/models/User/user-dto.models';
 import { UserService } from 'src/app/services/User-Services/user.service';
-import { HttpClient } from '@angular/common/http';
+import {user} from 'src/app/shared/models/users.models';
+import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-users-form',
@@ -10,36 +11,49 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./users-form.component.scss']
 })
 export class UsersFormComponent implements OnInit {
+  public dataform : FormGroup = new FormGroup([]);
+  constructor(private userService: UserService, private location: Location) { }
 
-  constructor(private userService: UserService) { }
-
-  dataform = new FormGroup(
+ private initializeForm(): void {
+  this.dataform = new FormGroup(
     {
-      firstname : new FormControl(''),
-      lastname : new FormControl(''),
+      firstName : new FormControl(''),      
+      lastName : new FormControl(''),
       email : new FormControl(''),
-      phonenumber : new FormControl(''),
-      idnumber : new FormControl(''),
-      birthday : new FormControl(''),
-      status : new FormControl(''),
-      street : new FormControl(''),
-      number : new FormControl(''),
-      city : new FormControl(''),
-      state : new FormControl(''),
-      zip : new FormControl('')
-      
+      phoneNumber : new FormControl(''),
+      idNumber : new FormControl(''),
+      birthDate : new FormControl(new Date(), [Validators.required]),
+      address: new FormGroup({
+        street : new FormControl(''),
+        number : new FormControl(''),
+        city : new FormControl(''),
+        state : new FormControl(''),
+        zip : new FormControl('')
+      }),
+
+        status : new FormControl('')
     }
-  ) 
+  ) }
 
+  goBack() {
+    this.location.back();
+  }
 submit(){
-  const createUser: CreateUserDto = { 
-  ...this.dataform.value } as CreateUserDto;
+  const createUser: UserDto = {
+  ...this.dataform.value
+  } as UserDto;
 
-    this.userService.create(createUser)
-
+    this.userService.create(createUser).subscribe(()=>{
+      alert('user created');
+      this.goBack();
+    },()=>{
+      alert('error creating user');
+    }
+    );
 }
 
   ngOnInit(): void {
+    this.initializeForm();
   }
 
 }

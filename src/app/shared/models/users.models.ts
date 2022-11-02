@@ -1,3 +1,5 @@
+import { Address } from "./Address/address.models"
+
 export interface user {
     id: number,
     firstName: string,
@@ -5,16 +7,9 @@ export interface user {
     email: string,
     phoneNumber:string,
     idNumber: string,
-    birthDate: string,
-    address: 
-     {
-        street: string,
-        number: number,
-        city: string,
-        state: string,
-        zip: number,
-      },
-      status: string
+    birthDate: Date,
+    address : Address,
+      status: number
       createdAt: string
       updatedAt: string
     }

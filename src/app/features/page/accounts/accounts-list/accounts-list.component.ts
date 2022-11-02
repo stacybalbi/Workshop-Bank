@@ -11,10 +11,26 @@ export class AccountsListComponent implements OnInit {
   
   accounts!: account[];
 
-  constructor(private service: AccountsService) { }
+  constructor(private accountService: AccountsService) { }
 
   ngOnInit(): void {
-    this.service.list().subscribe(datos => this.accounts = datos);
+    this.getAccount();
+  }
+
+  getAccount(){
+    this.accountService.list().subscribe(datos => this.accounts = datos);
+  }
+
+  delete(accountId: number){
+    this.accountService.remove(accountId).subscribe(data =>{
+      alert("card successfully removed");
+      this.getAccount();
+    }, () =>{
+      alert('error deleting card')
+    }
+    )
+
   }
 
 }
+

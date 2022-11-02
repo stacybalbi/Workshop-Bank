@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from 'src/app/services/cards-service/card.service';
-import { cardType } from 'src/app/shared/enums/creditCard.enum';
+import { cardType } from 'src/app/core/enums/creditCard.enum';
 import { cards } from 'src/app/shared/models/cards.models';
 
 @Component({
@@ -17,22 +17,23 @@ export class CardsDetailsComponent implements OnInit {
   Type: string="";
 
 
+
   constructor(
     private activateRouter: ActivatedRoute,
     private service: CardService,
     
   ) { }
 
-  ChangeEnums(){
-    // if (this.DatosCards.status === 1){
-    //   this.Type = "VISA";
-    // }
-    // else{
-    //   this.Type = "Mastercard";
-    // }
-   this.Type = this.DatosCards.status ===1 ? "VISA" : "Mastercard";
+//   ChangeEnums(){
+//     // if (this.DatosCards.status === 1){
+//     //   this.Type = "VISA";
+//     // }
+//     // else{
+//     //   this.Type = "Mastercard";
+//     // }
+//    this.Type = this.DatosCards.status ===1 ? "VISA" : "Mastercard";
 
- }
+//  }
 
 ngOnInit() {
     let UserAccount = this.activateRouter.snapshot.paramMap.get('id');
@@ -40,7 +41,7 @@ ngOnInit() {
     this.service.loadById(UserAccount).subscribe(data => {
       this.DatosCards = data;
       console.log(data);
-    this.ChangeEnums();
+   // this.ChangeEnums();
 
   });
   }

@@ -1,1 +1,30 @@
-<p>cards-form works!</p>
+<br>
+
+<h1><span style="color:#4a4857">  <i class="far fa-address-card"></i> </span>Register Credit Card</h1>
+<hr>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="name"> Card Number</label>
+    <input type="text" class="form-control" formControlName="cardNumber">
+    
+    <label for="name"> Card Type</label>
+    <select type="number" class="form-control"  formControlName="cardType">
+      <option [value]=1>VISA</option>
+      <option [value]=2>MASTERCARD</option>
+    </select>
+    <label for="name"> Ammount</label>
+      <input type="number" class="form-control" formControlName="ammount">
+    <label for="name"> Balance</label>
+      <input type="number" class="form-control" formControlName="balance">
+    <label for="name"> ID User</label>
+      <input type="number" class="form-control" formControlName="userId">
+    <label for="name">Status</label>
+    <select type="number" class="form-control"  formControlName="status" >
+        <option [value]=1>ACTIVE</option>
+      </select>
+      <br>
+      <button type="submit" class="btn btn-success btn-rounded">
+        Submit
+      </button>
+    </div>
+</form>

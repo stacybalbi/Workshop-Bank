@@ -1,9 +1,14 @@
 <h3 class="text-center p-3">
+  <span style="color:#4a4857">  <i class="far fa-address-card"></i> </span>
     <span class="text-muted ">Credit Cards</span>
-    <span style="color: rgb(40, 40, 200)">  <i class="fa-solid fa-users p-3"></i> </span>
+   
+    
     <hr>
   </h3>
-
+  <button routerLink="/create-creditcard" type="button" class="btn btn-info">
+    <i class="far fa-address-card"></i>
+    Register Credit Card</button>
+<br><br>
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Credit Cards</button>
@@ -33,8 +38,8 @@
                 <td>{{card.balance}}</td>
                 <td>{{card.status}}</td>
                 <td>
-                    <i class="fa-solid fa-pen-to-square p-2" style="color:green" ></i>
-                    <i class="fa-solid fa-trash" style="color:red"></i>
+                  <a class="far fa-edit" style="color:green">  </a>
+                    <i (click)="delete(card.id)" class="fa-solid fa-trash-alt" style="color:red"></i>
                 </td>
                 <td>
                   <a routerLink="/card/details/{{card.id}}">
@@ -46,9 +51,9 @@
           </table>
     </div>
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-        Users Activos
+        Users Active
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-        User inactivos
+        User inactive
     </div>
   </div>

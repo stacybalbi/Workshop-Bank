@@ -11,10 +11,24 @@ export class CardsListComponent implements OnInit {
 
   cards!: cards[];
 
-  constructor(private service: CardService) { }
+  constructor(private cardservice: CardService) { }
 
   ngOnInit(): void {
-    this.service.list().subscribe(datos => this.cards = datos);
+    this.getCard();
   }
 
+  getCard(){
+    this.cardservice.list().subscribe(datos => this.cards = datos);
+  }
+
+  delete(cardId: number){
+    this.cardservice.remove(cardId).subscribe(data =>{
+      alert("card successfully removed");
+      this.getCard();
+    }, () =>{
+      alert('error deleting card')
+    }
+    )
+
+  }
 }

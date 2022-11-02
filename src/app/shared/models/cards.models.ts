@@ -1,7 +1,7 @@
 export interface cards {
     id:number,
-    cardNumber: number,
-    cardType: string,
+    cardNumber: string,
+    cardType: number,
     ammount: number,
     balance: number,
     userId: number,

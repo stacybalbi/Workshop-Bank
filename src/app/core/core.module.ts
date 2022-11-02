@@ -3,11 +3,13 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { UsersFormComponent } from "../features/page/users/users-form/users-form.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { UserStatePipe } from './pipes/user-state.pipe';
 
 
 @NgModule({
     declarations: [
-        NavbarComponent
+        NavbarComponent,
+        UserStatePipe
     ],
     exports: [
         NavbarComponent

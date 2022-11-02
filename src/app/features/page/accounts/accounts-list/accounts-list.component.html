@@ -1,9 +1,13 @@
 <h3 class="text-center p-3">
+  <span style="color: #4a4857">  <i class="fas fa-user-cog"></i> </span>
     <span class="text-muted ">Accounts</span>
-    <span style="color: rgb(40, 40, 200)">  <i class="fa-solid fa-users p-3"></i> </span>
+   
     <hr>
   </h3>
-
+  <button routerLink="/create-account" type="button" class="btn btn-info">
+    <i class="fas fa-user-cog"></i>
+    Register Account</button>
+  <br><br>
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Accounts</button>
@@ -33,8 +37,8 @@
                 <td>{{account.balance}}</td>
                 <td>{{account.status}}</td>
                 <td>
-                    <i class="fa-solid fa-pen-to-square p-2" style="color:green" [routerLink]=''></i>
-                    <i class="fa-solid fa-trash" style="color:red"></i>
+                  <a class="far fa-edit" style="color:green">  </a>
+                    <i (click)="delete(account.id)" class="far fa-trash-alt" style="color:red"></i>
                 </td>
                 <td>
                   <a routerLink="/account/details/{{account.id}}">

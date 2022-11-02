@@ -17,8 +17,23 @@ export class UsersListComponent implements OnInit {
   constructor(private service: UserService) { }
 
   ngOnInit(){
-    this.service.list().subscribe(datos => this.users = datos);
+   this.getUser();
     
+  }
+
+  getUser(){
+    this.service.list().subscribe(datos => this.users = datos);
+  }
+
+  delete(accountId: number){
+    this.service.remove(accountId).subscribe(data =>{
+      alert("card successfully removed");
+      this.getUser();
+    }, () =>{
+      alert('error deleting card')
+    }
+    )
+
   }
 
   loadById(id: any){

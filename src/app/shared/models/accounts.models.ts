@@ -1,10 +1,10 @@
 export interface account {
     id: number,
-    accountNumber: number,
+    accountNumber: string,
     accountType: number,
     balance: number,
     userId: number,
-    status: string,
+    status: number,
     createdAt: string,
     updatedAt: string
 }

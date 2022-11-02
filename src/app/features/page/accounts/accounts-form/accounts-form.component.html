@@ -1,1 +1,31 @@
-<p>accounts-form works!</p>
+<br>
+<h1><span style="color: #4a4857">  <i class="fas fa-user-cog"></i> </span>Register Account</h1>
+<hr>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group"></div>
+    <label for="name"> Account Number</label>
+    <input type="text" class="form-control" formControlName="accountNumber">
+    <div class="form-group"></div>
+    <label for="name"> Account Type</label>
+    <select class="form-control"  formControlName="accountType">
+      <option [value]="1">CHECKING</option>
+      <option [value]="2">SAVINGS</option> 
+    </select>
+    <div class="form-group"></div>
+    <label for="name"> Balance</label>
+     <input type="number" class="form-control" formControlName="balance">
+    <div class="form-group"></div>
+    <label for="name"> ID User</label>
+    <select name="" id="" class="form-control" formControlName="userId">
+      <option *ngfor="let user of users" value="{{user.id}}">{{user.firstName}}</option>
+    </select>
+    <div class="form-group"></div>
+    <label for="name">Status</label>
+    <select class="form-control" formControlName="status" >
+        <option type="number" [value]="1">ACTIVE</option>
+      </select>
+     <br>
+     <button type="submit" class="btn btn-success btn-rounded">
+        Submit
+      </button>
+</form>
