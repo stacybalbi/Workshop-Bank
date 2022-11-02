@@ -11,9 +11,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersFormComponent implements OnInit {
 
-  constructor(http: HttpClient) { }
+  constructor(private userService: UserService) { }
 
-  userService: UserService | any;
   dataform = new FormGroup(
     {
       firstname : new FormControl(''),
@@ -37,6 +36,7 @@ submit(){
   ...this.dataform.value } as CreateUserDto;
 
     this.userService.create(createUser)
+
 }
 
   ngOnInit(): void {

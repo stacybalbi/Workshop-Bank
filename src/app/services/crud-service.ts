@@ -23,7 +23,7 @@ export class CrudService<T> {
       return this.create(record);
     }
   
-    private create(record: Partial<T>) {
+    create(record: Partial<T>) {
       return this.http.post<T>(this.API_URL, record).pipe(first());
     }
   
